@@ -3,8 +3,9 @@ name: postgres_recensioni
 services:
   postgres:
     image: docker.io/postgres:latest
-#    volumes:
-#      - "$PWD/postgres:/docker-entrypoint-initdb.d"
+    #Per Persistenza
+    # volumes:
+    #   - "recensioni_db_data:/var/lib/postgresql/data"
     ports:
       - "5433:5432"
     environment:
@@ -22,3 +23,7 @@ services:
     volumes:
       - ./pgadmin/servers.json:/pgadmin4/servers.json
     profiles: [debug]
+#Per Persistenza
+# volumes:
+#   recensioni_db_data:
+#     driver: local
